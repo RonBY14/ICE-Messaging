@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=
+	"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="EventBus"
+		  class="com.eventsystem.components.EventBus"
+		  scope="singleton">
+	</bean>
+
+	<bean id="DataAccess"
+		  class="com.rchat.models.DataAccess"
+		  scope="singleton">
+	</bean>
+
+	<bean id="MessageReader"
+		  class="com.rchat.net.services.MessageReader"
+		  scope="singleton">
+		<constructor-arg ref="EventBus"/>
+		<constructor-arg ref="DataAccess"/>
+	</bean>
+
+	<bean id="Sender"
+		  class="com.rchat.net.services.Sender"
+		  scope="singleton">
+		<constructor-arg ref="EventBus"/>
+		<constructor-arg ref="DataAccess"/>
+	</bean>
+
+	<bean id="ConnectionController"
+		  class="com.rchat.net.services.ConnectionController"
+		  scope="singleton">
+		<constructor-arg ref="EventBus"/>
+		<constructor-arg ref="DataAccess"/>
+	</bean>
+
+	<bean id="Window" class="javax.swing.JFrame" scope="singleton">
+		<constructor-arg value="ICE"/>
+		<!-- 3 exits on close -->
+		<property name="defaultCloseOperation" value="3"/>
+		<property name="resizable" value="false"/>
+		<property name="visible" value="true"/>
+	</bean>
+
+	<bean id="BasePanel"
+		  class="com.rchat.ui.panels.BasePanel"
+		  scope="prototype">
+
+		<constructor-arg ref="EventBus"/>
+		<constructor-arg ref="DataAccess"/>
+		<constructor-arg ref="GUIManager"/>
+	</bean>
+
+	<bean id="GUIManager"
+		  class="com.rchat.ui.GUIManager"
+		  scope="singleton">
+		<constructor-arg ref="EventBus"/>
+		<constructor-arg ref="Window"/>
+
+		<property name="currentPanel" ref="BasePanel"/>
+	</bean>
+
+</beans>
