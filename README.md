@@ -158,7 +158,7 @@ ICE is a monolithic event-driven software, powered by independent loosely-couple
 
 # Screenshots
 
-All screenshots: 
+[All screenshots](https://github.com/RonBY14/ICE-Messaging/tree/main/Screenshots)
 
 ## Alpha Screenshoot
 
