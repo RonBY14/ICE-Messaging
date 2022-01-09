@@ -1,0 +1,49 @@
+<!--
+    # These are the rules for the header of a message. Each header element
+    # must be in a fixed length of '5' octets with total header length of '30' octets.
+    # This rule is important for finding the length of the message.
+
+    1. mtype    Represents the message's type, used by the client or server
+                to 'know' what it should perform.
+
+    2. id       The id of the message to be acknowledged.
+
+    3. len      The number of embedded octets that make up the message.
+                The length must be smaller then 65535.
+-->
+<mtype id="00000" len="00000">
+
+    <!--
+        1. scheme   Or 'routing scheme', allow to pick the way to distribute the message.
+
+        2. mode     The actual routing scheme to use from the available modes: Unicast, multicast, broadcast.
+    -->
+    <scheme mode="unicast">
+
+        <!-- Added on the server side! -->
+        <from>"David"</from>
+        <to>"Ron"</to>
+
+    </scheme>
+
+    <scheme mode="multicast">
+
+        <!-- Added on the server side! -->
+        <from>"David"</from>
+        <to>"Ron, Shelly"</to>
+
+    </scheme>
+
+    <scheme mode="broadcast">
+
+        <!-- Added on the server side! -->
+        <from>"David"</from>
+
+    </scheme>
+
+    <!-- Not every message will include this section -->
+    <content>
+        "Hello"
+    </content>
+
+</mtype>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=
+	"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="ClientHandler"
+		  class="com.rchat.net.components.ClientHandler"
+		  scope="singleton"
+		  init-method="start">
+
+		<constructor-arg ref="Distributor"/>
+	</bean>
+
+	<bean id="ServerController"
+		  class="com.rchat.net.components.ServerController"
+		  scope="singleton">
+	</bean>
+
+	<bean id="Distributor"
+		  class="com.rchat.net.components.Distributor"
+		  scope="singleton"
+		  init-method="start">
+	</bean>
+
+	<bean id="RequestHandler"
+		  class="com.rchat.net.components.RequestHandler"
+		  scope="singleton"
+		  init-method="start">
+
+		<constructor-arg ref="ClientHandler"/>
+		<constructor-arg ref="Distributor"/>
+	</bean>
+
+	<bean id="ConnectionListener"
+		  class="com.rchat.net.components.ConnectionListener"
+		  scope="singleton"
+		  init-method="start">
+
+		<constructor-arg ref="ServerController"/>
+		<constructor-arg ref="ClientHandler"/>
+	</bean>
+
+	<bean id="Receiver"
+		  class="com.rchat.net.components.Receiver"
+		  scope="prototype">
+
+		<constructor-arg ref="RequestHandler"/>
+	</bean>
+
+</beans>

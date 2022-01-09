@@ -1,0 +1,14 @@
+<!--
+
+    Stands for "Participants List Update".
+    This type of message will sent only by the server only on broadcast mode.
+
+-->
+<plstu id="0" len="0">
+
+    <scheme type="broadcast">
+        <from>"Server"</from>
+        <to>"Ron, Shelly, David, Niv, Jhon, Tomi"</to>
+    </scheme>
+
+</plstu>
