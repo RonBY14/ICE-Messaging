@@ -1,7 +1,7 @@
 # ICE Server/Client
 
 ---
-#### Note that this software is still in pre-alpha! Which means it may be unstable and may be deployed with bugs.
+#### Note that this software is in pre-alpha! Which means it may be unstable and may be deployed with bugs.
 ---
 
 > # Table Of Contents:
@@ -34,7 +34,7 @@ ICE has a ***monolithic*** architecture combined with **event-driven paradigm** 
 
 ### Services
 
-ICE is powered by **completely independent loosely-coupled internal microservices** (**Not to be confused with microservice architecture**) that communicate with each other using **events**. Thanks to the fact that we avoid relying on dependencies and instead rely on events, we get significant benefits such as, **maintainability, scalability, and testability**. The only major dependencies almost every service requires are `EventBus` and `DataAccess` objects.
+ICE is powered by **completely independent loosely-coupled internal services/components** that communicate with each other internally using **events**. Thanks to the fact that we avoid relying on dependencies and instead rely on events, we get significant benefits such as, **maintainability, scalability, and testability**. The only major dependencies almost every service requires are `EventBus` and `DataAccess` objects.
 
 The thing that enables the total independence of services that are contained within the same monolithic software is events. Instead of injecting dependencies to dependents, each service lives independently and communicates with other services by sending events to them. Sure, an event sent by one service must be known by the other service in order to be handled, but just from looking you can see that the code is much more maintainable and scaleable this way. Look at the differences between the both approaches - dependency injection vs event-driven:
 
