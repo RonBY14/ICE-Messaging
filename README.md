@@ -147,10 +147,10 @@ ICE is a monolithic event-driven software, powered by independent loosely-couple
 
 - The only requirement is that you must have **Java 11 or above**.
 
-1. In order to start chatting you have to first download the server and the client's executables from the following links:
+1. In order to start chatting you have to first download the server **(if you are hosting)** and the client's executables from the following links:
 
-    * [Server Software](https://github.com/RonBY14/ICE-Messaging/blob/main/ICE%20Server.jar?raw=true)
-    * [Client Software](https://github.com/RonBY14/ICE-Messaging/blob/main/ICE%20Client.jar?raw=true)  
+    * [Server Software](https://github.com/RonBY14/ICE-Messaging/blob/main/ICE%20Server.jar?raw=true) - Download only if you want to host a chat room.
+    * [Client Software](https://github.com/RonBY14/ICE-Messaging/blob/main/ICE%20Client.jar?raw=true) - The actual chat software.
 
 2. Start by running the server, which by default will run on port `3348`.
 3. Now you can start one or more instances of the client program.
